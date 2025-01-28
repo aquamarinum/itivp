@@ -23,7 +23,7 @@
           <img src="./assets/img/logo.png" alt="pizza-logo" />
         </div>
         <div class="logo-content">
-          <h4>Next Pizza</h4>
+          <h3>Next Pizza</h3>
           <p>вкусней уже некуда</p>
         </div>
       </a>
@@ -56,36 +56,101 @@
       </div>
     </header>
     <div class="wrapper">
+      <h1>Все пиццы</h1>
+      <div class="tools">
+        <ul class="categories">
+          <li><a href="#" class="active">Все</a></li>
+          <li><a href="#">Мясные</a></li>
+          <li><a href="#">Острые</a></li>
+          <li><a href="#">Сладкие</a></li>
+          <li><a href="#">Вегетарианские</a></li>
+          <li><a href="#">С курицей</a></li>
+          <li>
+            <a href="#"
+              >Ещё
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path
+                  d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                />
+              </svg>
+            </a>
+          </li>
+        </ul>
+        <div class="sort">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+            <path
+              d="M182.6 9.4c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L128 109.3l0 293.5L86.6 361.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 402.7l0-293.5 41.4 41.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-96-96z"
+            />
+          </svg>
+          <p>Сортировка по:</p>
+          <span>рейтингу</span>
+        </div>
+      </div>
       <main>
-        <h1>Все пиццы</h1>
         <div class="filters">
-          <ul class="categories">
-            <li><a href="#" class="active">Все</a></li>
-            <li><a href="#">Мясные</a></li>
-            <li><a href="#">Острые</a></li>
-            <li><a href="#">Сладкие</a></li>
-            <li><a href="#">Вегетарианские</a></li>
-            <li><a href="#">С курицей</a></li>
-            <li>
-              <a href="#"
-                >Ещё
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                  <path
-                    d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
-                  />
-                </svg>
-              </a>
-            </li>
-          </ul>
-          <div class="sort">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-              <path
-                d="M182.6 9.4c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L128 109.3l0 293.5L86.6 361.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 402.7l0-293.5 41.4 41.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-96-96z"
-              />
-            </svg>
-            <p>Сортировка по:</p>
-            <span>рейтингу</span>
+          <h5>Фильтрация</h5>
+
+          <div class="range">
+            <h6>Цена от и до:</h6>
+            <div class="range-input">
+              <input type="number" placeholder="0" min="0" max="100" />
+              <input type="number" placeholder="100" min="0" max="100" />
+            </div>
           </div>
+          <div class="ingridients">
+            <h6>Ингридиенты:</h6>
+            <ul>
+              <li>
+                <input type="checkbox" id="ingridient1" name="ingredient" />
+                <label for="ingridient1"></label>
+                <p>Сырный соус</p>
+              </li>
+              <li>
+                <input type="checkbox" id="ingridient2" name="ingredient" />
+                <label for="ingridient2"></label>
+                <p>Моцарелла</p>
+              </li>
+              <li>
+                <input type="checkbox" id="ingridient3" name="ingredient" />
+                <label for="ingridient3"></label>
+                <p>Чеснок</p>
+              </li>
+              <li>
+                <input type="checkbox" id="ingridient4" name="ingredient" />
+                <label for="ingridient4"></label>
+                <p>Соленые огурчики</p>
+              </li>
+              <li>
+                <input type="checkbox" id="ingridient5" name="ingredient" />
+                <label for="ingridient5"></label>
+                <p>Красный лук</p>
+              </li>
+              <li>
+                <input type="checkbox" id="ingridient6" name="ingredient" />
+                <label for="ingridient6"></label>
+                <p>Томаты</p>
+              </li>
+            </ul>
+            <div class="ingredients-more"><a href="#">+ Показать всё</a></div>
+          </div>
+
+          <div class="types">
+            <h6>Тип теста:</h6>
+            <ul>
+              <li>
+                <input type="radio" id="type1" name="type" checked />
+                <label for="type1"></label>
+                <p>Традиционное</p>
+              </li>
+              <li>
+                <input type="radio" id="type2" name="type" />
+                <label for="type2"></label>
+                <p>Тонкое</p>
+              </li>
+            </ul>
+          </div>
+
+          <button class="filters-btn">Применить</button>
         </div>
       </main>
     </div>
