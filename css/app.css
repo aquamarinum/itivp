@@ -3,6 +3,7 @@
 @import "./sort.css";
 @import "./filters.css";
 @import "./catalog.css";
+@import "./pagination.css";
 
 .wrapper {
   transition: 0.3s;
