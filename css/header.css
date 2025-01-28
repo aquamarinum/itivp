@@ -55,6 +55,10 @@ header {
   border-radius: 15px;
 }
 
+.search-block input:focus + .search-close-icon {
+  display: block;
+}
+
 .search-block input::placeholder {
   color: #c0c0c0;
 }
@@ -68,6 +72,22 @@ header {
 }
 
 .search-block .search-icon svg {
+  width: 16px;
+  height: 16px;
+
+  fill: #adadad;
+}
+
+.search-block .search-close-icon {
+  display: none;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+
+  transform: translateY(-40%);
+}
+
+.search-block .search-close-icon svg {
   width: 16px;
   height: 16px;
 

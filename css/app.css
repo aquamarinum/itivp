@@ -2,6 +2,7 @@
 @import "./header.css";
 @import "./sort.css";
 @import "./filters.css";
+@import "./catalog.css";
 
 .wrapper {
   transition: 0.3s;
@@ -16,13 +17,13 @@ h1 {
 }
 
 main {
+  width: 100%;
   margin-top: 60px;
+  display: flex;
+  justify-content: space-between;
 }
 
 @media screen and (max-width: 768px) {
-  body {
-    font-size: 12px;
-  }
   .wrapper {
     padding: 40px;
   }
