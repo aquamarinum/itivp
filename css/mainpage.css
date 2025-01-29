@@ -46,6 +46,10 @@
   border-radius: 15px;
 }
 
+.intro-btn:active {
+  transform: translateY(5px);
+}
+
 .intro-content .intro-btn {
   background: #fff7ee;
 }
