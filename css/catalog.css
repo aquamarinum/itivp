@@ -6,13 +6,11 @@
   width: 100%;
 
   gap: 50px;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .product {
-  max-width: 285px;
   width: 100%;
 }
 
@@ -131,4 +129,22 @@
 
 .product-actions button:active {
   transform: translateY(5px);
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .catalog {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+  .product-image {
+    height: 180px;
+  }
+  .product-image img {
+    width: 140px;
+  }
 }
