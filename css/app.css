@@ -5,6 +5,10 @@
 @import "./catalog.css";
 @import "./pagination.css";
 @import "./centerpage.css";
+@import "./mainpage.css";
+@import "./about.css";
+@import "./testimonials.css";
+@import "./contacts.css";
 
 .wrapper {
   transition: 0.3s;
@@ -16,6 +20,25 @@
 h1 {
   font-size: 2.25rem;
   font-weight: 800;
+  color: #000000;
+}
+
+h5 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000000;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000000;
+}
+
+p {
+  font-size: 1rem;
+  color: #202020;
+  font-weight: 400;
 }
 
 main {
