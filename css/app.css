@@ -4,6 +4,7 @@
 @import "./filters.css";
 @import "./catalog.css";
 @import "./pagination.css";
+@import "./centerpage.css";
 
 .wrapper {
   transition: 0.3s;
