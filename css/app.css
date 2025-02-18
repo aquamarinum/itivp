@@ -1,61 +1,109 @@
-@import "./normalize.css";
-@import "./header.css";
-@import "./sort.css";
-@import "./filters.css";
-@import "./catalog.css";
-@import "./pagination.css";
-@import "./centerpage.css";
-@import "./mainpage.css";
-@import "./about.css";
-@import "./testimonials.css";
-@import "./contacts.css";
+@import "./_normalize.css";
+@import "./_fonts.css";
+@import "./_variables.css";
 
-.wrapper {
-  transition: 0.3s;
-  width: 100%;
-  max-width: 1440px;
-  padding: 40px 60px;
+h1,
+h2,
+h6,
+p,
+a {
+  color: var(--color-black);
+  letter-spacing: 0.05rem;
+  line-height: 150%;
 }
 
 h1 {
-  font-size: 2.25rem;
-  font-weight: 800;
-  color: #000000;
+  text-align: center;
+  font-size: 3rem;
+  font-family: "Nunito-Extrabold";
 }
 
-h5 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #000000;
+h2 {
+  position: relative;
+  text-align: center;
+  font-size: 3rem;
+  font-family: "Nunito-Extrabold";
+}
+
+h2.left {
+  text-align: left;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background: var(--color-primary);
 }
 
 h6 {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #000000;
+  font-size: 1.5rem;
+  font-family: "Nunito-Bold";
 }
 
 p {
-  font-size: 1rem;
-  color: #202020;
-  font-weight: 400;
+  font-size: 1.25rem;
+  font-family: "Nunito-Medium";
 }
 
-main {
+section {
   width: 100%;
-  margin-top: 60px;
+  height: 100vh;
+  height: 100dvh;
+
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  max-width: 1440px;
+  width: 100%;
+
+  display: flex;
+}
+
+.content-center {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-between {
+  flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
-@media screen and (max-width: 768px) {
-  .wrapper {
-    padding: 40px;
-  }
+a.button {
+  transition: 0.3s;
+
+  width: 240px;
+  height: 64px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--color-primary);
+  border-radius: 10px;
+
+  color: var(--color-white);
+  font-size: 1.5rem;
+  font-family: "Nunito-Bold";
 }
 
-@media screen and (max-width: 415px) {
-  .wrapper {
-    padding: 20px;
-  }
+a.button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+a.button:active {
+  transform: translateY(5px);
 }
