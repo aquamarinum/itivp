@@ -2,8 +2,10 @@
 @import "./_fonts.css";
 @import "./_variables.css";
 
-@import './button.css';
+@import "./button.css";
 @import "./header.css";
+
+@import "./intro.css";
 
 h1,
 h2,
@@ -19,7 +21,6 @@ a {
 }
 
 h1 {
-  text-align: center;
   font-size: 3rem;
   font-family: "Nunito-Extrabold";
 }
@@ -71,6 +72,7 @@ section {
 .content {
   max-width: 1440px;
   width: 100%;
+  padding: 0 20px;
 
   display: flex;
 }
@@ -87,3 +89,16 @@ section {
   align-items: center;
 }
 
+.content-left {
+  align-items: start;
+}
+
+@media screen and (max-width: 768px) {
+  h1,
+  h2 {
+    font-size: 2.5rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+}
