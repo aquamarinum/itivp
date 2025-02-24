@@ -44,10 +44,14 @@ h2::after {
   bottom: 0;
   left: 0;
 
-  width: 120px;
+  width: 100%;
   height: 3px;
 
   background: var(--color-primary);
+}
+
+h2.left::after {
+  width: 120px;
 }
 
 h6 {
