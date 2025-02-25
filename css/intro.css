@@ -12,8 +12,8 @@
   display: flex;
 }
 
-.intro p {
-  margin: 40px 0;
+.intro .subtitle {
+  margin-top: 40px;
 }
 
 .intro-buttons .button:nth-child(2) {
@@ -27,8 +27,8 @@
 }
 
 @media screen and (max-width: 768px) {
-  .intro p {
-    margin: 20px 0;
+  .intro .subtitle {
+    margin-top: 20px;
   }
   .intro .content-left {
     max-width: 100%;

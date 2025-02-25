@@ -121,6 +121,10 @@ header nav ul li a:hover::after {
   transform: scaleX(100%);
 }
 
+header nav .button {
+  margin-top: 0;
+}
+
 @media screen and (max-width: 1200px) {
   header nav .logo h5 {
     display: none;
