@@ -32,7 +32,7 @@ footer p {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: var(--color-primary);
+  background: var(--color-gray);
 }
 
 .socials li a {
