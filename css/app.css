@@ -9,6 +9,7 @@
 @import "./about.css";
 @import "./catalog.css";
 @import "./reviews.css";
+@import "./contacts.css";
 
 h1,
 h2,
@@ -30,7 +31,6 @@ h1 {
 
 h2 {
   position: relative;
-  margin-bottom: 40px;
   text-align: center;
   font-size: 3rem;
   font-family: "Nunito-Extrabold";
@@ -94,14 +94,33 @@ section {
 }
 
 .content-between {
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
 .content-left {
+  display: flex;
+  flex-direction: column;
   align-items: start;
   margin-right: 40px;
+}
+
+.content-right {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.preview {
+  width: 100%;
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 50px;
+  row-gap: 60px;
 }
 
 @media screen and (max-width: 768px) {
