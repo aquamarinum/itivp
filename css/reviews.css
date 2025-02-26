@@ -1,12 +1,15 @@
 @import "./_variables.css";
 
 .review-container {
+  max-width: 1440px;
   width: 100%;
+  margin: 60px auto;
+  padding: 20px;
+
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: start;
-  column-gap: 50px;
-  overflow-x: scroll;
+  align-items: center;
 }
 
 .review {
