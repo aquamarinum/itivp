@@ -518,17 +518,95 @@
           </div>
         </div>
       </section>
+      <section>
+        <div class="content content-center">
+          <h2>Забронировать столик</h2>
+          <form action="POST">
+            <div class="left-side">
+              <div class="input-block">
+                <label for="fio"><h6>ФИО:</h6></label>
+                <input type="text" name="fio" required />
+              </div>
+              <div class="input-block">
+                <label for="tel"><h6>Телефон:</h6></label>
+                <input
+                  type="tel"
+                  name="tel"
+                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                  required
+                />
+              </div>
+              <div class="input-block">
+                <label for="mail"><h6>Электронная почта:</h6></label>
+                <input
+                  type="email"
+                  name="mail"
+                  pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                  required
+                />
+              </div>
+            </div>
+            <div class="right-side">
+              <div class="input-block">
+                <label for="date"><h6>Дата:</h6></label>
+                <input type="date" name="date" required />
+              </div>
+              <div class="input-block">
+                <label for="time"><h6>Время:</h6></label>
+                <input type="time" name="time" required />
+              </div>
+              <div class="input-block">
+                <label for="table"><h6>Столик:</h6></label>
+                <input type="number" name="table" min="1" max="50" required />
+              </div>
+            </div>
+            <div class="submit-button">
+              <input
+                type="submit"
+                value="Забронировать"
+                class="button filled"
+              />
+            </div>
+          </form>
+        </div>
+      </section>
     </main>
     <footer>
-      <h2></h2>
-      <p></p>
-      <ul class="socials">
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-      </ul>
+      <div class="content content-center">
+        <h2>Next Pizza</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam ©
+        </p>
+        <ul class="socials">
+          <li>
+            <a href="https://vk.com"
+              ><img src="./assets/img/pizza-logo.png" alt="social-icon"
+            /></a>
+          </li>
+          <li>
+            <a href="https://vk.com"
+              ><img src="./assets/img/pizza-logo.png" alt="social-icon"
+            /></a>
+          </li>
+          <li>
+            <a href="https://vk.com"
+              ><img src="./assets/img/pizza-logo.png" alt="social-icon"
+            /></a>
+          </li>
+          <li>
+            <a href="https://vk.com"
+              ><img src="./assets/img/pizza-logo.png" alt="social-icon"
+            /></a>
+          </li>
+          <li>
+            <a href="https://vk.com"
+              ><img src="./assets/img/pizza-logo.png" alt="social-icon"
+            /></a>
+          </li>
+        </ul>
+      </div>
     </footer>
   </body>
   <script src="./js/app.js"></script>

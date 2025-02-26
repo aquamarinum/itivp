@@ -1,0 +1,57 @@
+@import "./_variables.css";
+
+form {
+  width: 100%;
+  margin: 40px 0;
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+  column-gap: 40px;
+}
+
+.right-side {
+  justify-items: end;
+}
+
+.input-block {
+  margin-top: 40px;
+  max-width: 480px;
+  width: 100%;
+}
+
+.input-block input {
+  width: 100%;
+  margin-top: 20px;
+  padding: 16px 24px;
+  border-radius: 10px;
+  background: var(--color-secondary);
+
+  font-size: 1rem;
+  font-family: "Nunito-Medium";
+  color: var(--color-black);
+
+  border: none;
+}
+
+.input-block input:focus {
+  outline: 2px solid var(--color-primary);
+}
+
+.submit-button {
+  grid-column: span 2;
+
+  justify-items: center;
+}
+
+@media screen and (max-width: 560px) {
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  .input-block {
+    margin-top: 20px;
+  }
+  .input-block input {
+    margin-top: 10px;
+  }
+}

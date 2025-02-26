@@ -15,6 +15,7 @@
   border-radius: 15px;
 }
 
+.button,
 .button p {
   transition: 0.3s;
 
@@ -52,6 +53,7 @@
   background-color: var(--color-primary);
 }
 
+.button.filled,
 .button.filled p {
   color: var(--color-white);
 }
