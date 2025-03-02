@@ -1,16 +1,60 @@
-.content {
+@import "./_variables.css";
+
+.catalog-container {
+  max-width: 1440px;
   width: 100%;
+  margin: 60px auto;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
 .catalog {
   width: 100%;
+  margin: 40px 0;
 
   gap: 50px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  justify-items: center;
+}
+
+.menu-nav {
+  margin: 40px 0;
+  display: flex;
+  column-gap: 30px;
+}
+
+.menu-nav li {
+  min-width: 120px;
+  height: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--color-secondary);
+  border-radius: 10px;
+}
+
+.menu-nav li:hover {
+  cursor: pointer;
+}
+
+.menu-nav li.active {
+  background: var(--color-primary);
+}
+
+.menu-nav li.active p {
+  color: var(--color-white);
 }
 
 .product {
   width: 100%;
+  max-width: 320px;
 }
 
 .product-image {
@@ -130,20 +174,69 @@
   transform: translateY(5px);
 }
 
+.menu-pag {
+  margin-top: 40px;
+  display: flex;
+  column-gap: 30px;
+}
+
+.menu-pag li {
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--color-secondary);
+  border-radius: 10px;
+}
+
+.menu-pag li:hover {
+  cursor: pointer;
+}
+
+.menu-pag li.active {
+  background: var(--color-primary);
+}
+
+.menu-pag li p {
+  color: var(--color-primary);
+  font-family: "Nunito-Bold";
+}
+
+.menu-pag li.active p {
+  color: var(--color-white);
+}
+
+.menu-pag li svg {
+  width: 18px;
+  height: 18px;
+
+  fill: var(--color-primary);
+}
+
 @media screen and (max-width: 768px) {
-  .content {
-    margin-left: 0;
+  .catalog-container {
+    margin: 40px auto;
+  }
+  .menu-nav {
+    padding: 10px 0;
+    margin: 20px 0;
+    width: 100%;
+    overflow-x: scroll;
+
+    column-gap: 20px;
+  }
+  .menu-pag {
+    margin-top: 20px;
+    column-gap: 20px;
   }
 }
 
-@media screen and (max-width: 375px) {
-  .catalog {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  }
-  .product-image {
-    height: 180px;
-  }
-  .product-image img {
-    width: 140px;
+@media screen and (max-width: 560px) {
+  .menu-pag {
+    width: 100%;
+    justify-content: space-between;
   }
 }

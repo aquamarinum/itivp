@@ -1,3 +1,5 @@
+@import "./_variables.css";
+
 * {
   padding: 0;
   margin: 0;
@@ -17,7 +19,6 @@ body {
   transition: 0.3s;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  color: #202020;
 }
 
 h1,
@@ -25,10 +26,9 @@ h2,
 h3,
 h4,
 h5 {
-  color: #000000;
+  color: var(--color-black);
 }
 
 a {
   text-decoration: none;
-  color: #202020;
 }

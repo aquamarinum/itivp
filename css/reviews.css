@@ -1,0 +1,61 @@
+@import "./_variables.css";
+
+.review-container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 60px auto;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.review {
+  max-width: 320px;
+  min-width: 240px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-avatar {
+  width: 120px;
+  height: 120px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-secondary);
+  border-radius: 50%;
+}
+
+.review h6 {
+  margin: 10px 0;
+}
+
+.review-rate {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.review-rate-star {
+  margin: 10px 9px;
+}
+
+.review-rate-star svg path {
+  fill: var(--color-secondary);
+}
+
+.review-rate-star.active svg path {
+  fill: var(--color-primary);
+}
+
+.review p {
+  text-align: justify;
+  font-size: 1rem;
+}
