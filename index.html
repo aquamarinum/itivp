@@ -527,7 +527,7 @@
             <div class="left-side">
               <div class="input-block">
                 <label for="fio"><h6>ФИО:</h6></label>
-                <input type="text" name="fio" required />
+                <input type="text" name="fio" required maxlength="40" />
               </div>
               <div class="input-block">
                 <label for="tel"><h6>Телефон:</h6></label>
@@ -535,6 +535,7 @@
                   type="tel"
                   name="tel"
                   pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                  maxlength="12"
                   required
                 />
               </div>
@@ -544,6 +545,7 @@
                   type="email"
                   name="mail"
                   pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                  maxlength="30"
                   required
                 />
               </div>
@@ -559,7 +561,14 @@
               </div>
               <div class="input-block">
                 <label for="table"><h6>Столик:</h6></label>
-                <input type="number" name="table" min="1" max="50" required />
+                <input
+                  type="number"
+                  name="table"
+                  min="1"
+                  max="50"
+                  required
+                  maxlength="50"
+                />
               </div>
             </div>
             <div class="submit-button">
