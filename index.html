@@ -537,7 +537,13 @@
             <div class="right-side">
               <div class="input-block">
                 <label for="date"><h6>Дата:</h6></label>
-                <input type="date" name="date" required />
+                <input
+                  type="date"
+                  name="date"
+                  required
+                  min="2025-03-26"
+                  max="2025-12-31"
+                />
               </div>
               <div class="input-block">
                 <label for="time"><h6>Время:</h6></label>
@@ -545,14 +551,7 @@
               </div>
               <div class="input-block">
                 <label for="table"><h6>Столик:</h6></label>
-                <input
-                  type="number"
-                  name="table"
-                  min="1"
-                  max="50"
-                  required
-                  maxlength="50"
-                />
+                <input type="number" name="table" min="1" max="50" required />
               </div>
             </div>
             <div class="submit-button">
