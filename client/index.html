@@ -4,20 +4,53 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <title>Title</title>
   </head>
   <body>
-    <div class="chat-container">
-      <div class="messages" id="messages"></div>
-      <div class="input-container">
-        <input
-          type="text"
-          id="messageInput"
-          placeholder="Введите сообщение..."
-        />
-        <button onclick="sendMessage()">Отправить</button>
+    <div class="container">
+      <div class="content">
+        <div id="chat"></div>
+        <form id="messageForm">
+          <input
+            type="text"
+            name="message"
+            id="message"
+            placeholder="message"
+            maxlength="50"
+          />
+          <input type="submit" value="send" />
+        </form>
       </div>
     </div>
-    <script src="./script.js"></script>
+
+    <script type="module">
+      const chatEl = document.getElementById("chat");
+      const ws = new WebSocket("ws://127.0.0.1:8000");
+      const name = Date.now();
+
+      ws.onmessage = (message) => {
+        const messages = JSON.parse(message.data);
+        messages.forEach((val) => {
+          const messageEl = document.createElement("div");
+          messageEl.appendChild(
+            document.createTextNode(`${val.name}: ${val.message}`)
+          );
+          chat.appendChild(messageEl);
+        });
+      };
+      const send = (event) => {
+        event.preventDefault();
+        const message = document.getElementById("message").value;
+        ws.send(
+          JSON.stringify({
+            name,
+            message,
+          })
+        );
+        return false;
+      };
+      const formEl = document.getElementById("messageForm");
+      formEl.addEventListener("submit", send);
+    </script>
   </body>
 </html>
