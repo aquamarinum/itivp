@@ -38,17 +38,34 @@
           chat.appendChild(messageEl);
         });
       };
+
+      let debounceTimeout;
+      const DEBOUNCE_DELAY = 500;
+
       const send = (event) => {
         event.preventDefault();
-        const message = document.getElementById("message").value;
+
+        if (debounceTimeout) {
+          return;
+        }
+
+        const message = document.getElementById("message").value.trim();
+        if (message === "") return;
+
         ws.send(
           JSON.stringify({
             name,
             message,
           })
         );
-        return false;
+
+        document.getElementById("message").value = "";
+
+        debounceTimeout = setTimeout(() => {
+          debounceTimeout = null;
+        }, DEBOUNCE_DELAY);
       };
+
       const formEl = document.getElementById("messageForm");
       formEl.addEventListener("submit", send);
     </script>

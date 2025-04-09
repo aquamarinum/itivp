@@ -2,7 +2,7 @@ import { WebSocketServer } from "ws";
 import { v4 as uuid } from "uuid";
 import { writeFile, readFileSync, existsSync } from "fs";
 const clients = {};
-const log = existsSync("log") && readFileSync("log", "utf-8");
+const log = existsSync("log.json") && readFileSync("log.json", "utf-8");
 const messages = log ? JSON.parse(log) : [];
 
 const wss = new WebSocketServer({ port: 8000 });
@@ -47,7 +47,7 @@ wss.on("connection", (ws) => {
 
 process.on("SIGINT", () => {
   wss.close();
-  writeFile("log", JSON.stringify(messages), (err) => {
+  writeFile("log.json", JSON.stringify(messages), (err) => {
     if (err) {
       console.log(err);
     }
