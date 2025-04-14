@@ -39,28 +39,33 @@
     </div>
 
     <script>
-      let page = 1;
+      let elnum = 1;
+      let isLoading = false;
+
       const container = document.getElementById("items");
       const loading = document.getElementById("loading");
 
-      function loadItems() {
+      function loadItems(count = 10) {
+        if (isLoading) return;
+        isLoading = true;
         loading.style.display = "block";
 
         setTimeout(() => {
-          for (let i = 1; i <= 5; i++) {
+          for (let i = 0; i < count; i++) {
             const item = document.createElement("div");
             item.className = "item";
-            item.textContent = `Элемент ${(page - 1) * 5 + i}`;
+            item.textContent = `Элемент ${elnum++}`;
             container.appendChild(item);
           }
           loading.style.display = "none";
-          page++;
+          isLoading = false;
         }, 1000);
       }
+      loadItems(15);
 
       const observer = new IntersectionObserver(
         (entries) => {
-          if (entries[0].isIntersecting) {
+          if (entries[0].isIntersecting && elnum < 100) {
             loadItems();
           }
         },
@@ -72,8 +77,6 @@
       );
 
       observer.observe(document.getElementById("loadTrigger"));
-
-      loadItems();
     </script>
   </body>
 </html>
