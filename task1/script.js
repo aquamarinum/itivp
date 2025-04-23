@@ -1,4 +1,4 @@
-const maxUsers = 2; // Изменено на 2
+const maxUsers = 2;
 let users = JSON.parse(localStorage.getItem("chatUsers")) || [];
 const messagesContainer = document.getElementById("messages");
 const messageInput = document.getElementById("message-input");
@@ -6,9 +6,8 @@ const sendButton = document.getElementById("send-button");
 const loginContainer = document.getElementById("login-container");
 const chatContainer = document.getElementById("chat-container");
 const errorMessage = document.getElementById("error-message");
-let currentUser = sessionStorage.getItem("currentUser") || ""; // Используем sessionStorage
+let currentUser = sessionStorage.getItem("currentUser") || "";
 
-// Проверка на наличие имени в localStorage при загрузке страницы
 window.addEventListener("load", () => {
   const username = sessionStorage.getItem("currentUser");
   if (username && users.includes(username)) {
@@ -25,10 +24,9 @@ window.addEventListener("load", () => {
 });
 
 document.getElementById("login-form").addEventListener("submit", (event) => {
-  event.preventDefault(); // Предотвращаем перезагрузку страницы
+  event.preventDefault();
   const username = document.getElementById("username").value.trim();
   if (validateUsername(username)) {
-    // Проверяем, существует ли пользователь
     if (!users.includes(username)) {
       if (users.length < maxUsers) {
         users.push(username);
@@ -38,9 +36,8 @@ document.getElementById("login-form").addEventListener("submit", (event) => {
         return;
       }
     }
-    // Устанавливаем текущее имя пользователя
     currentUser = username;
-    sessionStorage.setItem("currentUser", currentUser); // Сохраняем в sessionStorage
+    sessionStorage.setItem("currentUser", currentUser);
     loginContainer.style.display = "none";
     chatContainer.style.display = "block";
     loadMessages();
@@ -83,7 +80,7 @@ function validateMessage(message) {
 
 let debounceTimeout;
 document.getElementById("message-form").addEventListener("submit", (event) => {
-  event.preventDefault(); // Предотвращаем перезагрузку страницы
+  event.preventDefault();
   sendMessage();
 });
 
