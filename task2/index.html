@@ -3,80 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ITIVP-2</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-      }
-      .container {
-        max-width: 800px;
-        margin: auto;
-        padding: 20px;
-      }
-      .item {
-        background: white;
-        margin: 10px 0;
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      }
-      .loading {
-        text-align: center;
-        margin: 20px 0;
-        display: none;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
+    <title>Lazy Loading Gallery</title>
   </head>
   <body>
-    <div class="container" id="container">
-      <h1>Подгрузка данных при прокрутке</h1>
-      <div id="items"></div>
-      <div class="loading" id="loading">Загрузка...</div>
-      <div id="loadTrigger"></div>
+    <h2>Галерея с ленивой загрузкой</h2>
+    <div id="container">
+      <div id="item-list"></div>
     </div>
 
-    <script>
-      let elnum = 1;
-      let isLoading = false;
-
-      const container = document.getElementById("items");
-      const loading = document.getElementById("loading");
-
-      function loadItems(count = 10) {
-        if (isLoading) return;
-        isLoading = true;
-        loading.style.display = "block";
-
-        setTimeout(() => {
-          for (let i = 0; i < count; i++) {
-            const item = document.createElement("div");
-            item.className = "item";
-            item.textContent = `Элемент ${elnum++}`;
-            container.appendChild(item);
-          }
-          loading.style.display = "none";
-          isLoading = false;
-        }, 1000);
-      }
-      loadItems(15);
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          if (entries[0].isIntersecting && elnum < 100) {
-            loadItems();
-          }
-        },
-        {
-          root: null,
-          rootMargin: "0px",
-          threshold: 1.0,
-        }
-      );
-
-      observer.observe(document.getElementById("loadTrigger"));
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
