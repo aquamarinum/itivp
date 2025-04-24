@@ -70,7 +70,17 @@ function loadMessages() {
     .join("");
 }
 
+// function handleInput() {
+//   sendButton.disabled = !validateMessage(messageInput.value.trim());
+// }
+
 function handleInput() {
+  const originalValue = messageInput.value;
+  const trimmedStart = originalValue.replace(/^\s+/, "");
+  if (originalValue !== trimmedStart) {
+    messageInput.value = trimmedStart;
+  }
+
   sendButton.disabled = !validateMessage(messageInput.value.trim());
 }
 
