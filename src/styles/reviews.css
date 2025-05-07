@@ -3,7 +3,7 @@
 .review-container {
   max-width: 1440px;
   width: 100%;
-  margin: 60px auto;
+  margin: 60px auto 0;
   padding: 20px;
 
   display: flex;

@@ -19,7 +19,8 @@ form {
   width: 100%;
 }
 
-.input-block input {
+.input-block input,
+.input-block select {
   width: 100%;
   margin-top: 20px;
   padding: 16px 24px;
@@ -54,4 +55,28 @@ form {
   .input-block input {
     margin-top: 10px;
   }
+}
+
+.error-message {
+  color: red;
+  font-size: 0.8em;
+  margin-top: 0.2em;
+}
+
+.input-block input:invalid {
+  border-color: red;
+}
+
+.input-block select {
+  width: 100%;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+.input-block select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
