@@ -1,0 +1,15 @@
+/* VideoItem.css */
+.video-item {
+  display: flex !important;
+  align-items: center !important;
+  cursor: pointer;
+}
+
+.video-item .item {
+  padding: 10px !important;
+}
+
+.video-item .image {
+  max-width: 180px !important;
+  margin-right: 10px !important;
+}
