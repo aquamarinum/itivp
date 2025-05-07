@@ -10,20 +10,23 @@ import Footer from "./components/Footer";
 import "./styles/app.css";
 import Cart from "./pages/Cart";
 import { CartProvider } from "./utils/useCart";
+import NotificationProvider from "./components/NotificationProvider";
 
 function App() {
   return (
     <CartProvider>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/menu" element={<Menu />} />
-        <Route path="/reviews" element={<Reviews />} />
-        <Route path="/contacts" element={<Contacts />} />
-        <Route path="/cart" element={<Cart />} />
-      </Routes>
-      <Footer />
+      <NotificationProvider>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/reviews" element={<Reviews />} />
+          <Route path="/contacts" element={<Contacts />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+        <Footer />
+      </NotificationProvider>
     </CartProvider>
   );
 }

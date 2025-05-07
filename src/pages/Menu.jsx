@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { pizzas } from "../data";
 import Product from "../components/Product";
+import { NotificationContext } from "../components/NotificationProvider";
 
 const categories = [
   { id: 0, title: "все" },
@@ -14,8 +15,12 @@ const categories = [
 const Menu = () => {
   const [activeCategory, setActiveCategory] = useState(categories[0].id);
   const [products, setProducts] = useState(pizzas);
+  const { isFlagChecked } = useContext(NotificationContext);
 
   const onCategoryChange = (newCat = 0) => {
+    if (isFlagChecked) {
+      alert("Выбрана категория: " + categories[newCat].title);
+    }
     console.log(newCat);
     setActiveCategory(newCat);
     if (newCat > 0) {

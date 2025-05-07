@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useContext } from "react";
 import {
   validateFIO,
   validateTel,
@@ -8,8 +8,15 @@ import {
 import { validateDate, validateTime } from "../utils/dateTimeValidation";
 import { TableSelect } from "./TableSelect";
 import { Checkbox, FormControlLabel } from "@mui/material";
+import { NotificationContext } from "./NotificationProvider";
 
 const OrderForm = () => {
+  const { isFlagChecked, setFlagChecked } = useContext(NotificationContext);
+
+  const handleFlagChange = () => {
+    setFlagChecked(!isFlagChecked);
+  };
+
   const [formData, setFormData] = useState({
     fio: "",
     tel: "",
@@ -160,7 +167,12 @@ const OrderForm = () => {
             <div className="input-block">
               <FormControlLabel
                 label="Получать уведомления"
-                control={<Checkbox />}
+                control={
+                  <Checkbox
+                    checked={isFlagChecked}
+                    onChange={handleFlagChange}
+                  />
+                }
               />
             </div>
           </div>
