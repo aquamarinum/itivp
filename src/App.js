@@ -10,6 +10,7 @@ const App = () => {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [searchTerm, setSearchTerm] = useState("популярное");
+  const [error, setError] = useState(false);
 
   // Replace with your actual YouTube API key
   const API_KEY = "AIzaSyA_AtIULkdJa3jUPYH-33g92qNiMmbpWxs";
@@ -28,6 +29,7 @@ const App = () => {
       const data = await response.json();
 
       setVideos(data.items);
+      setError(false);
       if (data.items.length > 0) {
         setSelectedVideo(data.items[0]); // Select the first video by default
       } else {
@@ -36,7 +38,8 @@ const App = () => {
     } catch (error) {
       console.error("Error fetching videos:", error);
       setVideos([]); // Clear videos on error
-      setSelectedVideo(null); // Clear selected video on error
+      setSelectedVideo(null);
+      setError(true);
     }
   };
 
@@ -52,16 +55,28 @@ const App = () => {
   return (
     <div className="ui container">
       <SearchBar onFormSubmit={handleSearchSubmit} />
-      <div className="ui grid">
-        <div className="ui row">
-          <div className="eleven wide column">
-            <VideoDetail video={selectedVideo} />
+      {!error ? (
+        <>
+          <div className="ui grid">
+            <div className="ui row">
+              <div className="eleven wide column">
+                <VideoDetail video={selectedVideo} />
+              </div>
+              <div className="five wide column">
+                <VideoList videos={videos} onVideoSelect={handleVideoSelect} />
+              </div>
+            </div>
           </div>
-          <div className="five wide column">
-            <VideoList videos={videos} onVideoSelect={handleVideoSelect} />
-          </div>
-        </div>
-      </div>
+        </>
+      ) : (
+        <>
+          <h1>Ошибка</h1>
+          <p>
+            Проверьте Интернет-соединение и правильность введенных данных, после
+            чего попробуйте ещё раз
+          </p>
+        </>
+      )}
     </div>
   );
 };

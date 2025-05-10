@@ -22,7 +22,7 @@ const SearchBar = ({ onFormSubmit }) => {
             type="text"
             value={term}
             onChange={handleChange}
-            maxLength={10}
+            maxLength={20}
           />
         </div>
       </form>
