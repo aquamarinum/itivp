@@ -24,7 +24,7 @@ if ($result->num_rows == 0) {
 
 $contact = $result->fetch_assoc();
 $name = $contact['name'];
-$phone = formatPhone($contact['phone']); // Форматируем для отображения
+$phone = formatPhone($contact['phone']);
 $email = $contact['email'];
 $address = $contact['address'];
 $notes = $contact['notes'];
@@ -149,7 +149,6 @@ $conn->close();
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Маска для телефона
         document.querySelector('input[name="phone"]').addEventListener('input', function(e) {
             let value = e.target.value.replace(/\D/g, '');
 
@@ -160,7 +159,7 @@ $conn->close();
                 value = '+' + value;
             }
 
-            // Форматирование: +375 (XX) XXX-XX-XX
+
             if (value.startsWith('+375') && value.length > 4) {
                 let formatted = '+375 (';
                 let numbers = value.substring(4).replace(/\D/g, '');
@@ -182,12 +181,12 @@ $conn->close();
             }
         });
 
-        // Валидация телефона при отправке формы
+
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             const phoneInput = document.querySelector('input[name="phone"]');
             let phoneValue = phoneInput.value.replace(/\D/g, '');
 
-            // Нормализация номера
+
             if (phoneValue.startsWith('80')) {
                 phoneValue = '+375' + phoneValue.substring(2);
             } else if (phoneValue.startsWith('375')) {
@@ -196,7 +195,7 @@ $conn->close();
                 phoneValue = '+375' + phoneValue;
             }
 
-            // Проверка формата белорусского номера
+
             const phoneRegex = /^\+375(17|25|29|33|44)\d{7}$/;
 
             if (!phoneRegex.test(phoneValue)) {
