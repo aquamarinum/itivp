@@ -1,20 +1,15 @@
 <?php
-// Подключаем конфигурацию БД
 require_once 'config.php';
 
-// Инициализируем переменные для ошибок и данных
 $errors = [];
 $device_type = $device_model = $problem_description = $desired_date = '';
 
-// Проверяем, была ли отправлена форма
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  // Получаем и очищаем данные
   $device_type = trim($_POST['device_type'] ?? '');
   $device_model = trim($_POST['device_model'] ?? '');
   $problem_description = trim($_POST['problem_description'] ?? '');
   $desired_date = $_POST['desired_date'] ?? '';
 
-  // Валидация данных
   if (empty($device_type)) {
     $errors[] = "Поле 'Тип устройства' обязательно для заполнения.";
   } elseif (!in_array($device_type, ['Ноутбук', 'Смартфон', 'Планшет', 'Настольный компьютер', 'Монитор', 'Принтер', 'Сканер', 'Игровая консоль', 'Другое'])) {
@@ -49,11 +44,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
   }
 
-  // Если ошибок нет, сохраняем в БД
   if (empty($errors)) {
     $connection = connectDB();
 
-    // Подготовленный запрос для защиты от SQL-инъекций
     $query = "INSERT INTO service_requests (device_type, device_model, problem_description, desired_date) 
                   VALUES (?, ?, ?, ?)";
 
@@ -63,7 +56,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       mysqli_stmt_bind_param($stmt, "ssss", $device_type, $device_model, $problem_description, $desired_date);
 
       if (mysqli_stmt_execute($stmt)) {
-        // Перенаправляем на форму с сообщением об успехе
         header('Location: form.html?success=1');
         exit;
       } else {
