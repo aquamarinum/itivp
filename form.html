@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Запись в сервисный центр</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Запись в сервисный центр</h1>
+      <!-- 
+      <?php if (isset($_GET['success']) && $_GET['success'] == 1): ?>
+      <div class="success">
+        Ваша заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.
+      </div>
+      <?php endif; ?> -->
+
+      <form action="process.php" method="POST" id="serviceForm">
+        <div class="form-group">
+          <label for="device_type">Тип устройства *</label>
+          <select id="device_type" name="device_type" required>
+            <option value="">-- Выберите тип устройства --</option>
+            <option value="Ноутбук">Ноутбук</option>
+            <option value="Смартфон">Смартфон</option>
+            <option value="Планшет">Планшет</option>
+            <option value="Настольный компьютер">Настольный компьютер</option>
+            <option value="Монитор">Монитор</option>
+            <option value="Принтер">Принтер</option>
+            <option value="Сканер">Сканер</option>
+            <option value="Игровая консоль">Игровая консоль</option>
+            <option value="Другое">Другое</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="device_model">Модель устройства *</label>
+          <input
+            type="text"
+            id="device_model"
+            name="device_model"
+            required
+            placeholder="Например: iPhone 13, Samsung Galaxy S21, ASUS ROG Strix"
+            maxlength="100"
+          />
+          <div class="char-counter"><span id="model_counter">0</span>/100</div>
+        </div>
+
+        <div class="form-group">
+          <label for="problem_description">Описание проблемы *</label>
+          <textarea
+            id="problem_description"
+            name="problem_description"
+            required
+            placeholder="Подробно опишите проблему с вашим устройством"
+            maxlength="1000"
+          ></textarea>
+          <div class="char-counter"><span id="desc_counter">0</span>/1000</div>
+        </div>
+
+        <div class="form-group">
+          <label for="desired_date">Желаемая дата приема *</label>
+          <input
+            type="date"
+            id="desired_date"
+            name="desired_date"
+            required
+            min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>"
+            max="<?php echo date('Y-m-d', strtotime('+1 year')); ?>"
+          />
+          <div class="error" id="date_error"></div>
+        </div>
+
+        <button type="submit" id="submitBtn">Отправить заявку</button>
+      </form>
+    </div>
+
+    <script>
+      const modelInput = document.getElementById("device_model");
+      const descTextarea = document.getElementById("problem_description");
+      const modelCounter = document.getElementById("model_counter");
+      const descCounter = document.getElementById("desc_counter");
+      const dateInput = document.getElementById("desired_date");
+      const dateError = document.getElementById("date_error");
+      const submitBtn = document.getElementById("submitBtn");
+      const form = document.getElementById("serviceForm");
+
+      modelInput.addEventListener("input", function () {
+        const length = this.value.length;
+        modelCounter.textContent = length;
+
+        const counter = this.nextElementSibling.querySelector(".char-counter");
+        if (length > 90) {
+          modelCounter.className = "char-counter warning";
+        } else if (length >= 100) {
+          modelCounter.className = "char-counter error";
+        } else {
+          modelCounter.className = "char-counter";
+        }
+      });
+
+      descTextarea.addEventListener("input", function () {
+        const length = this.value.length;
+        descCounter.textContent = length;
+
+        if (length > 900) {
+          descCounter.className = "char-counter warning";
+        } else if (length >= 1000) {
+          descCounter.className = "char-counter error";
+        } else {
+          descCounter.className = "char-counter";
+        }
+      });
+
+      dateInput.addEventListener("change", function () {
+        const selectedDate = new Date(this.value);
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+
+        const oneYearLater = new Date();
+        oneYearLater.setFullYear(oneYearLater.getFullYear() + 1);
+
+        if (selectedDate < tomorrow) {
+          dateError.textContent =
+            "Дата приема не может быть сегодня или в прошлом";
+          submitBtn.disabled = true;
+        } else if (selectedDate > oneYearLater) {
+          dateError.textContent = "Запись возможна не более чем на год вперед";
+          submitBtn.disabled = true;
+        } else {
+          dateError.textContent = "";
+          submitBtn.disabled = false;
+        }
+      });
+
+      modelInput.dispatchEvent(new Event("input"));
+      descTextarea.dispatchEvent(new Event("input"));
+    </script>
+  </body>
+</html>
