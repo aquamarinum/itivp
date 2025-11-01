@@ -1,0 +1,21 @@
+# Dependencies
+/vendor/
+
+# Environment
+.env
+.env.local
+
+# IDE
+/.idea/
+/.vscode/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Reports
+/reports/
+*.log
+
+# Composer (опционально)
+/composer.lock
